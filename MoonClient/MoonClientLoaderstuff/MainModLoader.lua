@@ -10,6 +10,7 @@ end)
 FileManager = loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/All/Files.Load?raw=true"))() 
 coroutine.wrap(function()
 for i,v in pairs(FileManager) do
+      coroutine.wrap(function()
     if v[2] then
 for ii,vv in pairs(v[2]) do
 if vv == game.GameId then
@@ -18,19 +19,19 @@ end
     end
 
     end
-    a=tostring(v[1])
-    print(a)
 loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/All/"..v[1].."?raw=true"))() 
+   end)()
     end
 
 end)()
 s,r = pcall(function()
     FileManager2 = loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/".. tostring(game.GameId).."/Files.Load?raw=true"))() 
 end)
-print(s)
 if not s then
 return
 end
 for i,v in pairs(FileManager2) do
+    coroutine.wrap(function()
 loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/".. tostring(game.GameId).."/"..v[1].."?raw=true"))() 
+  end)()
     end
