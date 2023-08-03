@@ -1,6 +1,6 @@
 --optifine zoom 
 local GuiLib = loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/MoonClientLoaderstuff/Template.lua?raw=true"))() 
-GuiLib.createButton({["Default"]=true,	["Name"]="Custom Mouse",["Icon"]=0},function(Value)
+GuiLib.createButton({["Default"]=true,	["Name"]="Optifine Zoom",["Icon"]=0},function(Value)
 	A = Value
     if Value == false then
 	bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
