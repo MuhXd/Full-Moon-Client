@@ -31,6 +31,7 @@ if not s then
 return
 end
 for i,v in pairs(FileManager2) do
+      print(v[1])
     coroutine.wrap(function()
 loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/".. tostring(game.GameId).."/"..v[1].."?raw=true"))() 
   end)()
