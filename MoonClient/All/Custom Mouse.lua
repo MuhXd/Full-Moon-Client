@@ -1,7 +1,7 @@
 local GuiLib = loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/MoonClientLoaderstuff/Template.lua?raw=true"))() 
 GuiLib.createButton({["Default"]=true,	["Name"]="Custom Mouse",["Icon"]=0},function(Value)
 	A = Value
-		if A==false then
+		if Value==false then
 			local m = player:GetMouse()
 m.Icon = "rbxasset://textures/Cursors/KeyboardMouse/ArrowFarCursor.png"
 		end
