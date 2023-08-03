@@ -16,6 +16,9 @@ local player = players.LocalPlayer
 
 while task.wait() do
 		local m = player:GetMouse()
+	if m.Icon == "http://www.roblox.com/asset/?id=569021388" then
+m.Icon = "rbxasset://textures/Cursors/KeyboardMouse/ArrowFarCursor.png"
+	end
 		if A then
 			m.Icon = "http://www.roblox.com/asset/?id=569021388"
 		
