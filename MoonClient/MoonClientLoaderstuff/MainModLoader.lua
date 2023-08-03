@@ -1,4 +1,4 @@
-
+loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/MoonClientLoaderstuff/Uiloader/loadstring.lua?raw=true"))() 
 --[[
 "https://github.com/MuhXd/Full-Moon-Client/tree/main/MoonClient/All" -- Always used
 
