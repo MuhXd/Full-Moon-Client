@@ -2,10 +2,10 @@
 local GuiLib = loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/MoonClientLoaderstuff/Template.lua?raw=true"))() 
 GuiLib.createButton({["Default"]=true,	["Name"]="Optifine Zoom",["Icon"]=0},function(Value)
 	A = Value
-og=game.Camera.FieldOfView
     if Value == false then
 	game.Camera.FieldOfView=og
     end
+		og=game.Camera.FieldOfView
 end,function(v)
 	print("settings")
 end)
