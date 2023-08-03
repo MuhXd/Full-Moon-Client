@@ -88,6 +88,7 @@ Image.Size = UDim2.new(0.400000006, 0, 0.400000006, 0)
 Image.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 
 Temp.createButton = function(Settings,clicked,Settingsclicked)
+		enabled = Settings["Default"] or false
 local function ModLook(enabled,MOD)
 		if enabled  == true then
 			MOD.Click.Text = "ENABLED"
@@ -101,7 +102,7 @@ local function ModLook(enabled,MOD)
 	MOD.TextLabel.Text = Settings["Name"] or "MissingNam"
 	MOD.Image.Image = Settings["Icon"] or 0
 	MOD.Parent = game:GetService("CoreGui")["FullMoonClient.Gui"]["Frame"]["ScrollingFrame"]
-	enabled = Settings["Default"] or false
+
 	ModLook(enabled,MOD)
 	task.spawn(clicked,enabled)
 	MOD.Click.MouseButton1Click:Connect(function()
