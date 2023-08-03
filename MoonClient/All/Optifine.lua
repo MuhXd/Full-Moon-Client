@@ -18,7 +18,7 @@ og=game.Workspace.Camera.FieldOfView
 			repeat 
 game.Workspace.Camera.FieldOfView=30
 				task.wait()
-			until AA == false or AAW = false
+			until AA == false or AAW == true
 	end
 end)
 game:GetService('UserInputService').InputEnded:Connect(function(inputObject, gameProcessed)
