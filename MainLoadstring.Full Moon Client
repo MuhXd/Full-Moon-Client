@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/MoonClientLoaderstuff/MainModLoader.lua?raw=true"))() 
