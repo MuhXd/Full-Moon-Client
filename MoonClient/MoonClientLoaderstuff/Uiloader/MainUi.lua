@@ -1,4 +1,8 @@
-a=game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield
+b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsShield")
+if not b then
+b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsClippingShield")
+end
+a=b.SettingsShield
 local BottomButtonFrame=a.MenuContainer.BottomButtonFrame
 local LeaveGameButtonButton = Instance.new("ImageButton")
 local LeaveGameButtonTextLabel = Instance.new("TextLabel")
