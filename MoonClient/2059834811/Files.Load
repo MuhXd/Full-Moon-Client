@@ -1,3 +1,4 @@
 return {
-{"MoonClient.lua"}
+{"MoonClient.lua"},
+{"Optifine.lua"}
 }
