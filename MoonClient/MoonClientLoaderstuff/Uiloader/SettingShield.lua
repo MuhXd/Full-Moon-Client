@@ -1,5 +1,8 @@
 	local playerGui = game.Players.LocalPlayer.PlayerGui
-a=game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield
+b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsShield")
+if not b then
+b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsClippingShield")
+end
 	--[[
 	game:GetService("UserInputService").InputEnded:Connect(function(inputObject, gameProcessed)
 		if inputObject.KeyCode == Enum.KeyCode.X then
@@ -10,11 +13,11 @@ a=game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield
 	--]]
 	local State = false
 	UiBlur = Instance.new("BlurEffect")
-	UiBlur.Parent = game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield
+	UiBlur.Parent = b
 	UiBlur.Size = 10
 	UiBlur.Enabled =true
 a.MenuContainer.BottomButtonFrame.NormalSettings.HoverImage = "rbxasset://textures/ui/Settings/MenuBarAssets/MenuButtonSelected.png"
-	a=game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield
+	
 	UI = Instance.new("UIListLayout")
 	UI.Parent = a.MenuContainer.BottomButtonFrame
 	UI.Padding = UDim.new(0.01,0)
@@ -32,13 +35,13 @@ a.MenuContainer.BottomButtonFrame.NormalSettings.HoverImage = "rbxasset://textur
 	New.HoverImage = "rbxasset://textures/ui/Settings/MenuBarAssets/MenuButtonSelected.png"
 	New.Parent = a.MenuContainer.BottomButtonFrame
 	New.Visible=false
-game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.BackgroundTransparency = 1
-game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
-	game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.BackgroundTransparency = 1
+a.BackgroundTransparency = 1
+a:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
+	a.BackgroundTransparency = 1
 end)
-game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield:GetPropertyChangedSignal('Visible'):Connect(function()
-	game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.BackgroundTransparency = 1
-		if game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.Visible == true then
+a:GetPropertyChangedSignal('Visible'):Connect(function()
+	a.BackgroundTransparency = 1
+		if a.Visible == true then
 			UiBlur.Parent = game.Lighting
 			a.MenuContainer.Visible = true
 			State=false
@@ -70,7 +73,7 @@ game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield:GetPropertyCh
 			
 			
 		else
-			UiBlur.Parent = game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield
+			UiBlur.Parent = a
 		game:GetService("CoreGui")["FullMoonClient.Gui"].Enabled = false
 			State=false
 		end
@@ -176,6 +179,6 @@ end)
 
 
 
-game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.Visible=not game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.Visible
+a.Visible=not a.Visible
 task.wait()
-game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.Visible=not game:GetService('CoreGui').RobloxGui.SettingsShield.SettingsShield.Visible
+a.Visible=not a.Visible
