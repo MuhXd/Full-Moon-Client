@@ -5,15 +5,12 @@ local GuiLib = loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Clien
 local KeycodeOpt = Enum.KeyCode.Z
 GuiLib.createButton({["Default"]=true,	["Name"]="Optifine Zoom",["Icon"]=0,["HasOptionUi"]=true,["ui"]=Uisettinga},function(Value)
 	AA = Value
-    game.ReplicatedStorage:WaitForChild("MoonClientCustomizion"):WaitForChild("Optifne").Value = Value
     if Value == false then
-	game.Workspace.Camera.FieldOfView=og
+	bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
     end
-		og=game.Workspace.Camera.FieldOfView
 end,function(v)
 	print("settings")
 end)
-og=90
 SettingUiLib.createButton(Uisettinga,{["Mode"]="Keybind",["Name"]="Keybinds",["Default"]=Enum.KeyCode.Z},function(Value)
 		KeycodeOpt = Value
 	end,function(v)
@@ -31,7 +28,7 @@ until KnitGotten
 repeat task.wait() until debug.getupvalue(KnitClient.Start, 1)
 
 bedwars = {
-	ClientStoreHandler = require(game.Players.LocalPlayer.PlayerScripts.TS.ui.store).ClientStore,
+	ClientStoreHandler = require(game:GetService("Players").LocalPlayer.PlayerScripts.TS.ui.store).ClientStore,
 	FovController = KnitClient.Controllers.FovController
 }
 game:GetService('UserInputService').InputBegan:Connect(function(inputObject, gameProcessed)
