@@ -133,12 +133,7 @@ Topbar.BorderSizePixel = 0
 Topbar.Position = UDim2.new(0.193348184, 0, 0.206611574, 0)
 Topbar.Size = UDim2.new(0, 750, 0, 57)
 
-
-
 local Icon = Instance.new("ImageButton")
-
---Properties:
-
 Icon.Name = "Icon"
 Icon.Parent = Frame
 Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -148,6 +143,11 @@ Icon.BorderSizePixel = 0
 Icon.Position = UDim2.new(0.44048661, 0, 0, 0)
 Icon.Size = UDim2.new(0.069840081, 0, 0.0940438882, 0)
 Icon.Image = "http://www.roblox.com/asset/?id=9753762469"
+Icon.MouseButton1Click:Connect(function()
+if not ScrollingFrame.Visible then
+ScrollingFrame.Visible = true
+end
+end)
 
 SettingsShield.SettingsShield:GetPropertyChangedSignal('Position'):Connect(function()
 	Frame.Position =SettingsShield.SettingsShield.Position + UDim2.new(0.25, 0, 0.1, 0)
