@@ -102,7 +102,22 @@ local function ModLook(enabled,MOD)
 	MOD.TextLabel.Text = Settings["Name"] or "MissingNam"
 	MOD.Image.Image = Settings["Icon"] or 0
 	MOD.Parent = game:GetService("CoreGui")["FullMoonClient.Gui"]["Frame"]["ScrollingFrame"]
-
+MOD.TextButton.Visible = false
+MOD.ImageButton.Visible = false
+	if Settings["HasOptionUi"] then
+		if Settings["ui"] then
+			MOD.ImageButton.MouseButton1Click:Connect(function()
+				Settings["ui"].Visible = true
+				game:GetService("CoreGui")["FullMoonClient.Gui"]["Frame"]["ScrollingFrame"].Visible = false
+			end)
+		MOD.TextButton.MouseButton1Click:Connect(function()
+			Settings["ui"].Visible = true
+			game:GetService("CoreGui")["FullMoonClient.Gui"]["Frame"]["ScrollingFrame"].Visible = false
+		end)
+MOD.TextButton.Visible = true
+MOD.ImageButton.Visible = true
+		end
+	end
 	ModLook(enabled,MOD)
 	task.spawn(clicked,enabled)
 	MOD.Click.MouseButton1Click:Connect(function()
