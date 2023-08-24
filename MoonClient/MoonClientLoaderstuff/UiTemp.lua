@@ -59,6 +59,11 @@ Temp.CreateUI = function(Name)
 			Settings.Visible = false
 		end
 	end)
+game:GetService("CoreGui")["FullMoonClient.Gui"].Frame:GetPropertyChangedSignal("Visible"):Connect(function(v)
+		if not game:GetService("CoreGui")["FullMoonClient.Gui"].Frame.Visible then
+			Settings.Visible = false
+		end
+	end)
 	Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Settings.BackgroundTransparency = 1.000
 	Settings.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -112,10 +117,11 @@ Temp.createButton = function(Parent2,Settings,clicked,Settingsclicked)
 			EnumKey = game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessed)
 				EnumKey:Disconnect()
 				ModLook(inputObject.KeyCode,MOD)
-				task.spawn(clicked,enabled)
+				task.spawn(clicked,inputObject.KeyCode)
 			end)
 		
 		end)
 		end
 	
 end
+return Temp
