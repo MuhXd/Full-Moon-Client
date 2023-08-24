@@ -33,11 +33,39 @@ bedwars = {
 }
 game:GetService('UserInputService').InputBegan:Connect(function(inputObject, gameProcessed)
 	if inputObject.KeyCode == KeycodeOpt and A == true then
+			local KnitGotten, KnitClient
+repeat
+	KnitGotten, KnitClient = pcall(function()
+		return debug.getupvalue(require(game.Players.LocalPlayer.PlayerScripts.TS.knit).setup, 6)
+	end)
+	if KnitGotten then break end
+	task.wait()
+until KnitGotten
+repeat task.wait() until debug.getupvalue(KnitClient.Start, 1)
+
+bedwars = {
+	ClientStoreHandler = require(game:GetService("Players").LocalPlayer.PlayerScripts.TS.ui.store).ClientStore,
+	FovController = KnitClient.Controllers.FovController
+}
 	bedwars.FovController:setFOV(30)
 	end
 end)
 game:GetService('UserInputService').InputEnded:Connect(function(inputObject, gameProcessed)
 	if inputObject.KeyCode == KeycodeOpt and A == true then
+			local KnitGotten, KnitClient
+repeat
+	KnitGotten, KnitClient = pcall(function()
+		return debug.getupvalue(require(game.Players.LocalPlayer.PlayerScripts.TS.knit).setup, 6)
+	end)
+	if KnitGotten then break end
+	task.wait()
+until KnitGotten
+repeat task.wait() until debug.getupvalue(KnitClient.Start, 1)
+
+bedwars = {
+	ClientStoreHandler = require(game:GetService("Players").LocalPlayer.PlayerScripts.TS.ui.store).ClientStore,
+	FovController = KnitClient.Controllers.FovController
+}
 		bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
 	end
 end)
