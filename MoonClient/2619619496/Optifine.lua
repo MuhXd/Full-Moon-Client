@@ -32,7 +32,7 @@ bedwars = {
 	FovController = KnitClient.Controllers.FovController
 }
 game:GetService('UserInputService').InputBegan:Connect(function(inputObject, gameProcessed)
-	if inputObject.KeyCode == KeycodeOpt and A == true then
+	if inputObject.KeyCode == KeycodeOpt and AA == true then
 			local KnitGotten, KnitClient
 repeat
 	KnitGotten, KnitClient = pcall(function()
@@ -51,7 +51,7 @@ bedwars = {
 	end
 end)
 game:GetService('UserInputService').InputEnded:Connect(function(inputObject, gameProcessed)
-	if inputObject.KeyCode == KeycodeOpt and A == true then
+	if inputObject.KeyCode == KeycodeOpt and AA == true then
 			local KnitGotten, KnitClient
 repeat
 	KnitGotten, KnitClient = pcall(function()
