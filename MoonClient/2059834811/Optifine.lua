@@ -19,6 +19,7 @@ Uisettinga.createButton(Uisettinga,{["Mode"]="Keybind",["Name"]="Keybinds",["Def
 	end,function(v)
 	print("settings")
 end)
+local KeycodeOpt = Enum.KeyCode.Z
 game:GetService('UserInputService').InputBegan:Connect(function(inputObject, gameProcessed)
 	if inputObject.KeyCode == KeycodeOpt and AA == true then
 og=game.Workspace.Camera.FieldOfView
