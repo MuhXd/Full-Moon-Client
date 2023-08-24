@@ -40,7 +40,7 @@ game:GetService('UserInputService').InputBegan:Connect(function(inputObject, gam
 	end
 end)
 game:GetService('UserInputService').InputEnded:Connect(function(inputObject, gameProcessed)
-	if inputObject.KeyCode == KeycodeOptand A == true then
+	if inputObject.KeyCode == KeycodeOpt and A == true then
 		bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
 	end
 end)
