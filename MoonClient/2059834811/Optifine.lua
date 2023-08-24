@@ -14,7 +14,7 @@ end,function(v)
 	print("settings")
 end)
 og=90
-Uisettinga.createButton(Uisettinga,{["Mode"]="Keybind",["Name"]="Keybinds",["Default"]=Enum.KeyCode.Z},function(Value)
+SettingUiLib.createButton(Uisettinga,{["Mode"]="Keybind",["Name"]="Keybinds",["Default"]=Enum.KeyCode.Z},function(Value)
 		KeycodeOpt = Value
 	end,function(v)
 	print("settings")
