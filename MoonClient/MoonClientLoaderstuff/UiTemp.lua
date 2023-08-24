@@ -12,7 +12,7 @@ local TextLabel = Instance.new("TextLabel")
 --Properties:
 
 ExampleMod.Name = "Example Mod"
-ExampleMod.Parent = game.StarterGui["FullMoonClient.Gui"].Frame.Settings
+ExampleMod.Parent =game:GetService("CoreGui")["FullMoonClient.Gui"].Frame.Settings
 ExampleMod.BackgroundColor3 = Color3.fromRGB(136, 136, 136)
 ExampleMod.BackgroundTransparency = 0.600
 ExampleMod.BorderColor3 = Color3.fromRGB(0, 0, 0)
