@@ -12,7 +12,6 @@ local TextLabel = Instance.new("TextLabel")
 --Properties:
 
 ExampleMod.Name = "Example Mod"
-ExampleMod.Parent =game:GetService("CoreGui")["FullMoonClient.Gui"].Frame.Settings
 ExampleMod.BackgroundColor3 = Color3.fromRGB(136, 136, 136)
 ExampleMod.BackgroundTransparency = 0.600
 ExampleMod.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -56,7 +55,7 @@ Temp.CreateUI = function(Name)
 	Settings.Name = "Settings_"..os.time().."_"..Name
 	Settings.Visible = false
 	game:GetService("CoreGui")["FullMoonClient.Gui"].Frame.ScrollingFrame:GetPropertyChangedSignal("Visible"):Connect(function(v)
-		if v then
+		if game:GetService("CoreGui")["FullMoonClient.Gui"].Frame.ScrollingFrame.Visible then
 			Settings.Visible = false
 		end
 	end)
@@ -72,10 +71,10 @@ Temp.CreateUI = function(Name)
 	UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIGridLayout.CellSize = UDim2.new(0, 200, 0, 120)
 	UIGridLayout.FillDirectionMaxCells = 2
-	Settings.Parent = game:GetService("CoreGui")["FullMoonClient.Gui"]["Frame"]["Settings"]
+	Settings.Parent = game:GetService("CoreGui")["FullMoonClient.Gui"]["Frame"]
 	return Settings
 end
-Temp.createButton = function(Parent,Settings,clicked,Settingsclicked)
+Temp.createButton = function(Parent2,Settings,clicked,Settingsclicked)
 	if not Settings["Mode"] then
 		Settings["Mode"] = "BoolValue"
 	end
@@ -88,14 +87,14 @@ Temp.createButton = function(Parent,Settings,clicked,Settingsclicked)
 			MOD.Click.Text = "DISABLED"
 			MOD.Click.BackgroundColor3 = Color3.fromRGB(177, 0, 0)
 		else
-			MOD.Click.Text = string.gsub(enabled,"Enum.KeyCode.","")
+			MOD.Click.Text = string.gsub(tostring(enabled),"Enum.KeyCode.","")
 			MOD.Click.BackgroundColor3 = Color3.fromRGB(111, 0, 166)
 	end
 	end
+
 	local MOD = ExampleMod:Clone()
 	MOD.TextLabel.Text = Settings["Name"] or "MissingNam"
-	MOD.Image.Image = Settings["Icon"] or 0
-	MOD.Parent = Parent
+	MOD.Parent = Parent2
 
 	ModLook(enabled,MOD)
 	task.spawn(clicked,enabled)
@@ -108,10 +107,10 @@ Temp.createButton = function(Parent,Settings,clicked,Settingsclicked)
 	elseif Settings["Mode"] == "Keybind" then
 		MOD.Click.MouseButton1Click:Connect(function()
 			if EnumKey then
-				EnumKey:Disconect()
+				EnumKey:Disconnect()
 			end
 			EnumKey = game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessed)
-				EnumKey:Disconect()
+				EnumKey:Disconnect()
 				ModLook(inputObject.KeyCode,MOD)
 				task.spawn(clicked,enabled)
 			end)
@@ -120,4 +119,3 @@ Temp.createButton = function(Parent,Settings,clicked,Settingsclicked)
 		end
 	
 end
-return Temp
