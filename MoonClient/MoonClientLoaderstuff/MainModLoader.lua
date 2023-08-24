@@ -1,3 +1,11 @@
+if game:GetService("ReplicatedStorage"):FindFirstChild("MOONCLIENTLOADED") then
+    warn("You have Already Loaded")
+
+    return false
+end
+local Test = Instance.new("Part")
+Test.Name = "MOONCLIENTLOADED"
+Test.Parent = game:GetService("ReplicatedStorage")
 loadstring(game:HttpGet("https://github.com/MuhXd/Full-Moon-Client/blob/main/MoonClient/MoonClientLoaderstuff/Uiloader/loadstring.lua?raw=true"))() 
 --[[
 "https://github.com/MuhXd/Full-Moon-Client/tree/main/MoonClient/All" -- Always used
