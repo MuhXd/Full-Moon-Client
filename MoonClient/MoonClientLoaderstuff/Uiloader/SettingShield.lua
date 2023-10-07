@@ -49,6 +49,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 			a.MenuContainer.PageViewClipper.Visible = false
 			coroutine.wrap(function()
 				for i,v in pairs(a.MenuContainer.BottomButtonFrame:GetChildren()) do
+						pcall(function()
 					if v.Name == "UILISTING" then
 						return
 					end
@@ -68,7 +69,9 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 				end
 					end)()
 					New.Visible=false
+							end)
 				end
+					
 			end)()
 			
 			
@@ -89,6 +92,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 		State=true
 		coroutine.wrap(function()
 			for i,v in pairs(a.MenuContainer.BottomButtonFrame:GetChildren()) do
+					pcall(function()
 				if v.Name == "UILISTING" then
 					return
 				end
@@ -103,9 +107,10 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 
 						v.Enabled.Value = true
 						v.Visible = true
-
+									end)
 					end
 				end)()
+				end)
 			end
 		end)()
 		New.Visible=true
@@ -123,6 +128,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 		game:GetService("CoreGui")["FullMoonClient.Gui"].Enabled = false
 		coroutine.wrap(function()
 			for i,v in pairs(a.MenuContainer.BottomButtonFrame:GetChildren()) do
+				pcall(function()			
 				if v.Name == "UILISTING" then
 					return
 				end
@@ -141,6 +147,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 
 					end
 				end)()
+								end)
 			end
 		end)()	
 			State = false
@@ -154,6 +161,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 		a.MenuContainer.PageViewClipper.Visible = false
 		coroutine.wrap(function()
 			for i,v in pairs(a.MenuContainer.BottomButtonFrame:GetChildren()) do
+			pcall(function()
 				if v.Name == "UILISTING" then
 					return
 				end
@@ -172,6 +180,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 
 					end
 				end)()
+				end)
 			end
 		end)()	
 		New.Visible=false
