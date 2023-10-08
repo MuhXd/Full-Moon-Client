@@ -3,6 +3,7 @@ b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsShield")
 if not b then
 b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsClippingShield")
 end
+a=b.SettingsShield
 	--[[
 	game:GetService("UserInputService").InputEnded:Connect(function(inputObject, gameProcessed)
 		if inputObject.KeyCode == Enum.KeyCode.X then
@@ -11,11 +12,21 @@ end
 	end)
 	OLD CODE BOO!!!!
 	--]]
+b.DarkenBackground.Visible = false
 	local State = false
 	UiBlur = Instance.new("BlurEffect")
 	UiBlur.Parent = b
 	UiBlur.Size = 10
 	UiBlur.Enabled =true
+function UiBlurFunc(HBHBH)
+if UiBlur == nil then
+	UiBlur = Instance.new("BlurEffect")
+	UiBlur.Parent = b
+	UiBlur.Size = 10
+end
+	UiBlur.Enabled =HBHBH
+end
+
 a.MenuContainer.BottomButtonFrame.NormalSettings.HoverImage = "rbxasset://textures/ui/Settings/MenuBarAssets/MenuButtonSelected.png"
 	
 	UI = Instance.new("UIListLayout")
@@ -42,7 +53,7 @@ end)
 a:GetPropertyChangedSignal('Visible'):Connect(function()
 	a.BackgroundTransparency = 1
 		if a.Visible == true then
-			UiBlur.Parent = game.Lighting
+			UiBlurFunc(true)
 			a.MenuContainer.Visible = true
 			State=false
 			a.MenuContainer.HubBar.Visible = false
@@ -76,7 +87,7 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 			
 			
 		else
-			UiBlur.Parent = a
+			UiBlurFunc(false)
 		game:GetService("CoreGui")["FullMoonClient.Gui"].Enabled = false
 			State=false
 		end
@@ -107,8 +118,8 @@ a:GetPropertyChangedSignal('Visible'):Connect(function()
 
 						v.Enabled.Value = true
 						v.Visible = true
-									end)
-					end
+									end
+					
 				end)()
 				end)
 			end
