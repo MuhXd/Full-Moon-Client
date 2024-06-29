@@ -1,8 +1,10 @@
-	local playerGui = game.Players.LocalPlayer.PlayerGui
+local playerGui = game.Players.LocalPlayer.PlayerGui
 b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsShield")
 if not b then
 b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsClippingShield")
 end
+
+local IsOnMobile = table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform())
 local DarkenBackground = false
 if (b:FindFirstChild("DarkenBackground")) then
 DarkenBackground = true
@@ -31,6 +33,12 @@ if UiBlur == nil then
 	UiBlur.Size = 10
 end
 	UiBlur.Enabled =HBHBH
+end
+if IsOnMobile then
+	a.MenuContainer.BottomButtonFrame.HubBar.Visible = true
+	a.MenuContainer.BottomButtonFrame:GetPropertyChangedSignal('Visible'):Connect(function()
+		a.MenuContainer.BottomButtonFrame.HubBar.Visible = true -- fix mobile
+	end)
 end
 
 a.MenuContainer.BottomButtonFrame.NormalSettings.HoverImage = "rbxasset://textures/ui/Settings/MenuBarAssets/MenuButtonSelected.png"
