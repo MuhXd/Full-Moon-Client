@@ -35,9 +35,9 @@ end
 	UiBlur.Enabled =HBHBH
 end
 if IsOnMobile then
-	a.MenuContainer.BottomButtonFrame.HubBar.Visible = true
-	a.MenuContainer.BottomButtonFrame:GetPropertyChangedSignal('Visible'):Connect(function()
-		a.MenuContainer.BottomButtonFrame.HubBar.Visible = true -- fix mobile
+	a.MenuContainer.HubBar.Visible = true
+	a.MenuContainer:GetPropertyChangedSignal('Visible'):Connect(function()
+		a.MenuContainer.HubBar.Visible = true -- fix mobile
 	end)
 end
 
