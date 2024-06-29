@@ -152,7 +152,7 @@ end)
 SettingsShield.SettingsShield:GetPropertyChangedSignal('Position'):Connect(function()
 	Frame.Position =SettingsShield.SettingsShield.Position + UDim2.new(0.25, 0, 0.1, 0)
 end)
-
+Frame.Position =SettingsShield.SettingsShield.Position + UDim2.new(0.25, 0, 0.1, 0)
 function Size()
 	ScrollingFrame.CanvasSize= UDim2.new(0,0,((#ScrollingFrame:GetChildren()) / 5),0)	
 end
