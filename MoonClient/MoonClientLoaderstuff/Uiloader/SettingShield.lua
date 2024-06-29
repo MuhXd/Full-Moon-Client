@@ -3,7 +3,7 @@ b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsShield")
 if not b then
 b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsClippingShield")
 end
-
+local UserInputService = game:GetService("UserInputService");
 local IsOnMobile = table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform())
 local DarkenBackground = false
 if (b:FindFirstChild("DarkenBackground")) then
