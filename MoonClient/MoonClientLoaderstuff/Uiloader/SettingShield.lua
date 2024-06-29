@@ -36,7 +36,7 @@ end
 end
 if IsOnMobile then
 	a.MenuContainer.HubBar.Visible = true
-	a.MenuContainer:GetPropertyChangedSignal('Visible'):Connect(function()
+	a.MenuContainer.HubBar:GetPropertyChangedSignal('Visible'):Connect(function()
 		a.MenuContainer.HubBar.Visible = true -- fix mobile
 	end)
 end
