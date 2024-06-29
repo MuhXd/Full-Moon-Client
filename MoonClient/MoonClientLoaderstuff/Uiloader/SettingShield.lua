@@ -3,6 +3,10 @@ b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsShield")
 if not b then
 b=game:GetService('CoreGui').RobloxGui:FindFirstChild("SettingsClippingShield")
 end
+local DarkenBackground = false
+if (b:FindFirstChild("DarkenBackground")) then
+DarkenBackground = true
+end
 a=b.SettingsShield
 	--[[
 	game:GetService("UserInputService").InputEnded:Connect(function(inputObject, gameProcessed)
@@ -12,7 +16,9 @@ a=b.SettingsShield
 	end)
 	OLD CODE BOO!!!!
 	--]]
-b.DarkenBackground.Visible = false
+if (DarkenBackground) then
+	b.DarkenBackground.Visible = false
+end
 	local State = false
 	UiBlur = Instance.new("BlurEffect")
 	UiBlur.Parent = b
