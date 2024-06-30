@@ -35,10 +35,12 @@ end
 	UiBlur.Enabled =HBHBH
 end
 if IsOnMobile then
-	a.MenuContainer.HubBar.Visible = true
-	a.MenuContainer.HubBar:GetPropertyChangedSignal('Visible'):Connect(function()
-		a.MenuContainer.HubBar.Visible = true -- fix mobile
-	end)
+	a.MenuContainer.BottomButtonFrame.Visible = true
+	a.MenuContainer.BottomButtonFrame:GetPropertyChangedSignal('Visible'):Connect(function()
+	if (a.MenuContainer.BottomButtonFrame.Visible ==false) then 
+		a.MenuContainer.BottomButtonFrame.Visible = true -- fix mobile
+			end
+			end)
 end
 
 a.MenuContainer.BottomButtonFrame.NormalSettings.HoverImage = "rbxasset://textures/ui/Settings/MenuBarAssets/MenuButtonSelected.png"
